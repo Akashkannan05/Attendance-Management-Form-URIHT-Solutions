@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Form</title>
+    <link rel="stylesheet" href="Attendance_css.css">
+</head>
+<body>
+    <h1 class="title" >Attendance Form</h1>
+    <div class="main">
+        
+        <form class="form">
+            <label for="Name" class="name_label">Name:</label>
+            <input type="text" name="Name" class="name_input" id="NameId" placeholder="Enter you'r name" required>
+            <p id="NameError" style="color: red;"></p>
+            <br>
+            <label for="Date" class="Date_label">Date:</label>
+            <input type="date" name="Date" class="Date_input" id="DateId" required>
+            <br><br>
+            <label class="Attendance_label">Attendance:</label>
+            <label class="switch">
+                <input type="checkbox" id="AttendanceId">
+                <span class="slider round"></span>
+            </label>
+            <br><br>
+            <button type="submit" class="submit"><h2 class="text" id="SubmitButton">Submit</h2></button>
+        </form>
+    </div>
+    <script>
+        console.log("js");
+        const submit=document.getElementById("SubmitButton");
+        function function1(){
+                console.log("fun");
+                event.preventDefault();
+                const Name=document.getElementById('NameId').value;
+                const Date=document.getElementById('DateId').value;
+                const checkbox=document.getElementById('AttendanceId').checked;
+                const Attendance=(checkbox ? "Present" : "Absent");
+                console.log("Name:"+Name+";Attendance:"+Attendance);
+                sessionStorage.setItem(Name, "Date:"+Date+";Attendance:"+Attendance);
+            console.log(" Data succesufully stored");
+            alert("Thank you for your Submission!!!");
+        }
+        submit.addEventListener('click',function1);  
+    </script>
+</body>
+
+</html>
